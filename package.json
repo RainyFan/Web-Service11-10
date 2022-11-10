@@ -1,0 +1,12 @@
+{
+  "name": "week-12",
+  "version": "1.0.0",
+  "description": "A service for mental rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"yoga, meditation, cooking, ecstatic dance\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
