@@ -21,6 +21,7 @@ extract(input)
   .then(article => {
     console.log(article.title)
     console.log(article.image)
+    
   })
   .catch(err => console.error(err))
 
