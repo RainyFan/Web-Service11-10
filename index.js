@@ -1,14 +1,8 @@
-import { sentence } from 'txtgen'
-
-// Update the express app code below to this:
-app.get('/', (req, res) => {
-  const randomSentence = sentence()
-
-  res.send(randomSentence)
-})
-
-// Import the express library and assign it to a variable
+// es6 module
 import express from 'express'
+
+import { extract } from 'article-parser'
+
 
 // Create an instance of an express application 
 const app = express()
@@ -19,6 +13,18 @@ const port = process.env.PORT || 3001
 // Set up a response for the root path of the application
 app.get('/', (req, res) => {
   res.send("Time to Rest Service")
+})
+
+app.get('/parseArticle', (req, res) => {
+  const input = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+extract(input)
+  .then(article => {
+    console.log(article.title)
+    console.log(article.image)
+  })
+  .catch(err => console.error(err))
+
+  res.send("Second time try out")
 })
 
 // Set the application to listen a port
